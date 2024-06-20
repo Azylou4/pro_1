@@ -11,14 +11,14 @@ data = data[data.REGION_NAME != "Республика Татарстан"]
 data = data[data.REGION_NAME != "Республика Марий Эл" ]
 print(data.count())
 
-### Задание 1.1 ###
+
 # Сортируем данные по столбцу 'SALARY'
 sorted_data = data.sort_values(by=['SALARY'], ascending=True)
 salaries = sorted_data['SALARY'].tolist()
 print("Вариационный ряд:")
 print(salaries)
 
-### Задание 1.2 ###
+
 mean = (sum(salaries) / len(salaries))
 print("Выборочное среднее:", mean)
 s2n = sum((i-mean)**2 for i in salaries)/len(salaries)
@@ -27,7 +27,7 @@ s2 = len(salaries) * s2n / (len(salaries) - 1)
 print("Несмещенная выборочная дисперсия:", s2)
 print("Выборочная медиана:", statistics.median(salaries))
 
-### Задание 1.3 ###
+
 # Разбиваем данные на 10 интервалов
 num_bins = 10
 hist, bins = np.histogram(salaries, bins=num_bins)
